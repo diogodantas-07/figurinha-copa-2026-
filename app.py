@@ -297,8 +297,8 @@ if gerar and uploaded_file and api_key:
             response = client.models.generate_content(
                 model="gemini-2.0-flash-exp",
                 contents=[
-                    types.Part.from_text(prompt_text),
-                    types.Part.from_bytes(data=image_bytes, mime_type=mime),
+                    types.Part(text=prompt_text),
+                    types.Part(inline_data=types.Blob(mime_type=mime, data=image_bytes)),
                 ],
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE", "TEXT"]
