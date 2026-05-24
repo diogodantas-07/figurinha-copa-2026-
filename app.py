@@ -295,7 +295,7 @@ if gerar and uploaded_file and api_key:
 
             # Chama o Gemini com geração de imagem
             response = client.models.generate_content(
-                model="gemini-2.0-flash-exp",
+                model="gemini-2.0-flash-preview-image-generation",
                 contents=[
                     types.Part(text=prompt_text),
                     types.Part(inline_data=types.Blob(mime_type=mime, data=image_bytes)),
